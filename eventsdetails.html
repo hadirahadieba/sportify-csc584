@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Details - Sportify Community</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="logo">
+        <i class="fa-solid fa-person-running" style="color: #f59e0b; font-size: 24px;"></i>
+        <span>Sportify<br>Community</span>
+      </div>
+      <a href="dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+      <a href="events.html" class="active"><i class="fa-solid fa-calendar-days"></i> Manage Events</a>
+      <a href="categories.html"><i class="fa-solid fa-layer-group"></i> Manage Categories</a>
+      <a href="registrations.html"><i class="fa-solid fa-clipboard-list"></i> Manage Registrations</a>
+      <a href="logout.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header">
+        <h2>Event Details</h2>
+        <a href="events.html" class="btn-secondary" style="width: auto; padding: 10px 18px;">
+          <i class="fa-solid fa-arrow-left"></i> Back to Events
+        </a>
+      </div>
+
+      <div class="card-table" style="max-width: 720px;">
+        <div class="event-detail-box">
+          <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=600&q=80"
+               alt="Community Football League" class="event-banner-img">
+
+          <div class="event-info">
+            <span class="badge badge-open" style="margin-bottom: 8px; display: inline-block;">Open for Registration</span>
+            <h3 style="font-size: 22px; margin-bottom: 12px;">Community Football League</h3>
+
+            <p class="detail-row"><i class="fa-regular fa-calendar"></i> 16 Nov 2026 | 9:00 AM</p>
+            <p class="detail-row"><i class="fa-solid fa-location-dot"></i> Sports Hall</p>
+            <p class="detail-row"><i class="fa-solid fa-users"></i> Max Participants: 32</p>
+
+            <p style="margin-top: 14px; color: #4b4869; font-size: 14px; line-height: 1.5;">
+              Join our community football league and show your skills! Open to all skill levels and community members.
+            </p>
+
+            <div style="margin-top: 22px;">
+              <button type="button" class="btn-primary" onclick="showSuccessModal()">Register Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Registration Successful Modal -->
+  <div id="successModal" class="modal-overlay" style="display: none;">
+    <div class="logout-modal">
+      <div class="check-circle">
+        <i class="fa-solid fa-check"></i>
+      </div>
+      <h3 style="margin-bottom: 8px; font-size: 20px;">Registration Successful!</h3>
+      <p style="color: #6c6a80; font-size: 14px; margin-bottom: 22px;">
+        You have successfully registered for <strong>Community Football League</strong>.
+      </p>
+      <a href="registrations.html" class="btn-primary">View My Registrations</a>
+    </div>
+  </div>
+
+  <script>
+    function showSuccessModal() {
+      document.getElementById('successModal').style.display = 'flex';
+    }
+  </script>
+</body>
+</html>
