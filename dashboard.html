@@ -1,1 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard - Sportify Community</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="logo">
+        <i class="fa-solid fa-person-running" style="color: #f59e0b; font-size: 24px;"></i>
+        <span>Sportify<br>Community</span>
+      </div>
+      <a href="dashboard.html" class="active"><i class="fa-solid fa-house"></i> Dashboard</a>
+      <a href="events.html"><i class="fa-solid fa-calendar-days"></i> Manage Events</a>
+      <a href="categories.html"><i class="fa-solid fa-layer-group"></i> Manage Categories</a>
+      <a href="registrations.html"><i class="fa-solid fa-clipboard-list"></i> Manage Registrations</a>
+      <a href="logout.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </aside>
 
+    <main class="main-content">
+      <div class="page-header">
+        <h2>Admin Dashboard</h2>
+      </div>
+
+      <!-- Statistics Cards -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #fef3c7; color: #f59e0b;">
+            <i class="fa-solid fa-calendar-check"></i>
+          </div>
+          <div>
+            <p class="stat-label">Total Events</p>
+            <h3 class="stat-value">12</h3>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #e0e7ff; color: #4f46e5;">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <div>
+            <p class="stat-label">Total Members</p>
+            <h3 class="stat-value">248</h3>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon" style="background: #dcfce7; color: #16a34a;">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+          <div>
+            <p class="stat-label">Total Registrations</p>
+            <h3 class="stat-value">320</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Upcoming Events Table -->
+      <div class="card-table">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+          <h3 style="font-size: 18px;">Upcoming Events</h3>
+          <a href="events.html" style="color: #5b469c; font-size: 14px; font-weight: 600; text-decoration: none;">
+            View All <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Event Name</th>
+              <th>Date</th>
+              <th>Venue</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Community Football League</td>
+              <td>16 Nov 2026</td>
+              <td>Sports Hall</td>
+              <td><span class="badge badge-open">Open</span></td>
+              <td>
+                <a href="event-details.html" style="color: #5b469c; font-weight: 600; text-decoration: none;">View Details</a>
+              </td>
+            </tr>
+            <tr>
+              <td>Badminton Tournament</td>
+              <td>15 Nov 2026</td>
+              <td>Arena A</td>
+              <td><span class="badge badge-open">Open</span></td>
+              <td>
+                <a href="event-details.html" style="color: #5b469c; font-weight: 600; text-decoration: none;">View Details</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
