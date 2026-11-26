@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Registration - Sportify Community</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .event-summary-banner {
+      background: #f5f3ff;
+      border-left: 4px solid #6b46c1;
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+    }
+    .event-summary-banner h3 {
+      color: #2d2a4a;
+      margin-bottom: 6px;
+      font-size: 18px;
+    }
+    .event-summary-banner p {
+      color: #5a5772;
+      font-size: 14px;
+      margin: 2px 0;
+    }
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 16px;
+      font-size: 14px;
+      color: #4a4761;
+    }
+    .checkbox-group input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      accent-color: #6b46c1;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="logo">
+        <i class="fa-solid fa-person-running" style="color: #f59e0b; font-size: 24px;"></i>
+        <span>Sportify<br>Community</span>
+      </div>
+      <a href="user-dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+      <a href="explore-events.html" class="active"><i class="fa-solid fa-compass"></i> Explore Events</a>
+      <a href="my-registrations.html"><i class="fa-solid fa-clipboard-check"></i> My Registrations</a>
+      <a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a>
+      <a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header">
+        <h2>Register for Sports Event</h2>
+      </div>
+
+      <div class="card-table" style="max-width: 620px;">
+        <div class="event-summary-banner">
+          <h3>Community Football League</h3>
+          <p><i class="fa-regular fa-calendar"></i> 16 Nov 2026 &nbsp;|&nbsp; <i class="fa-solid fa-location-dot"></i> Sports Hall</p>
+          <p><i class="fa-solid fa-layer-group"></i> Category: Football</p>
+        </div>
+
+        <form action="registration-success.html" method="get">
+          <input type="hidden" name="eventId" value="101">
+          <input type="hidden" name="userId" value="1">
+
+          <div class="form-group">
+            <label for="fullName">Participant Name</label>
+            <input type="text" id="fullName" name="fullName" value="Irdina" readonly style="background-color: #f3f4f6; color: #6b7280;">
+          </div>
+
+          <div class="form-group">
+            <label for="phoneNumber">Contact Phone Number</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" value="012-3456789" required>
+          </div>
+
+          <div class="form-group">
+            <label for="skillLevel">Skill Level</label>
+            <select id="skillLevel" name="skillLevel" required style="width: 100%; padding: 10px 14px; border: 1px solid #d8d5e8; border-radius: 8px; font-size: 14px;">
+              <option value="">-- Select your skill level --</option>
+              <option value="Beginner">Beginner / Casual</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Competitive">Competitive</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="emergencyContact">Emergency Contact (Name & Phone)</label>
+            <input type="text" id="emergencyContact" name="emergencyContact" placeholder="e.g. Ahmad - 019-8765432" required>
+          </div>
+
+          <div class="checkbox-group">
+            <input type="checkbox" id="declaration" name="declaration" required>
+            <label for="declaration">I confirm that I am medically fit to participate and agree to follow the community sports event rules.</label>
+          </div>
+
+          <div style="display: flex; gap: 12px; margin-top: 24px;">
+            <a href="user-dashboard.html" class="btn-secondary">Cancel</a>
+            <button type="submit" class="btn-primary">Confirm Registration</button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

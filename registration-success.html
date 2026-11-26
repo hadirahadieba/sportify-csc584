@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Confirmed - Sportify Community</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .confirmation-card {
+      background: #ffffff;
+      max-width: 520px;
+      margin: 40px auto;
+      padding: 40px 32px;
+      border-radius: 16px;
+      box-shadow: 0 8px 28px rgba(74, 58, 138, 0.08);
+      text-align: center;
+    }
+    .success-icon {
+      width: 72px;
+      height: 72px;
+      background-color: #dcfce7;
+      color: #16a34a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      margin: 0 auto 20px;
+    }
+    .booking-details {
+      background: #f8f7fc;
+      border-radius: 10px;
+      padding: 16px;
+      margin: 22px 0;
+      text-align: left;
+      font-size: 14px;
+      color: #4a4761;
+    }
+    .booking-details p {
+      margin: 6px 0;
+      display: flex;
+      justify-content: space-between;
+    }
+    .booking-details span:first-child {
+      color: #7c7994;
+    }
+    .booking-details span:last-child {
+      font-weight: 600;
+      color: #2d2a4a;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="logo">
+        <i class="fa-solid fa-person-running" style="color: #f59e0b; font-size: 24px;"></i>
+        <span>Sportify<br>Community</span>
+      </div>
+      <a href="user-dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+      <a href="explore-events.html"><i class="fa-solid fa-compass"></i> Explore Events</a>
+      <a href="my-registrations.html" class="active"><i class="fa-solid fa-clipboard-check"></i> My Registrations</a>
+      <a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a>
+      <a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </aside>
+
+    <main class="main-content">
+      <div class="confirmation-card">
+        <div class="success-icon">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <h2 style="color: #2d2a4a; margin-bottom: 8px;">Registration Successful!</h2>
+        <p style="color: #6c6a80; font-size: 15px;">Your spot has been reserved for the event below.</p>
+
+        <div class="booking-details">
+          <p><span>Registration ID:</span> <span>#REG-2026-014</span></p>
+          <p><span>Event:</span> <span>Community Football League</span></p>
+          <p><span>Date:</span> <span>16 Nov 2026</span></p>
+          <p><span>Venue:</span> <span>Sports Hall</span></p>
+          <p><span>Status:</span> <span style="color: #16a34a;">Registered</span></p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <a href="my-registrations.html" class="btn-primary" style="text-align: center; text-decoration: none;">View My Registrations</a>
+          <a href="user-dashboard.html" class="btn-secondary" style="text-align: center; text-decoration: none;">Back to Dashboard</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

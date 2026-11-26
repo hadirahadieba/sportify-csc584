@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Registrations - Sportify Community</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .badge-registered {
+      background-color: #dcfce7;
+      color: #15803d;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .btn-danger-outline {
+      background: #ffffff;
+      border: 1px solid #fca5a5;
+      color: #dc2626;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-danger-outline:hover {
+      background: #fee2e2;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="logo">
+        <i class="fa-solid fa-person-running" style="color: #f59e0b; font-size: 24px;"></i>
+        <span>Sportify<br>Community</span>
+      </div>
+      <a href="user-dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+      <a href="explore-events.html"><i class="fa-solid fa-compass"></i> Explore Events</a>
+      <a href="my-registrations.html" class="active"><i class="fa-solid fa-clipboard-check"></i> My Registrations</a>
+      <a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a>
+      <a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header">
+        <h2>My Registrations</h2>
+        <a href="explore-events.html" class="btn-primary" style="text-decoration: none;">+ Join Another Event</a>
+      </div>
+
+      <div class="card-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Reg ID</th>
+              <th>Event Name</th>
+              <th>Category</th>
+              <th>Date</th>
+              <th>Venue</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#REG-014</td>
+              <td><strong>Community Football League</strong></td>
+              <td>Football</td>
+              <td>16 Nov 2026</td>
+              <td>Sports Hall</td>
+              <td><span class="badge-registered">Registered</span></td>
+              <td>
+                <button type="button" class="btn-danger-outline" onclick="alert('Storyboard demo: Registration cancelled.')">Cancel</button>
+              </td>
+            </tr>
+            <tr>
+              <td>#REG-009</td>
+              <td><strong>Badminton Tournament</strong></td>
+              <td>Badminton</td>
+              <td>15 Nov 2026</td>
+              <td>Arena A</td>
+              <td><span class="badge-registered">Registered</span></td>
+              <td>
+                <button type="button" class="btn-danger-outline" onclick="alert('Storyboard demo: Registration cancelled.')">Cancel</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

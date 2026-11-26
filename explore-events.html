@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Explore Events - Sportify Community</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .event-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 22px;
+      box-shadow: 0 6px 20px rgba(74, 58, 138, 0.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .category-tag {
+      display: inline-block;
+      background: #f3f0ff;
+      color: #6b46c1;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+    .event-card h3 {
+      color: #2d2a4a;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    .event-card p {
+      color: #6c6a80;
+      font-size: 14px;
+      margin: 4px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="logo">
+        <i class="fa-solid fa-person-running" style="color: #f59e0b; font-size: 24px;"></i>
+        <span>Sportify<br>Community</span>
+      </div>
+      <a href="user-dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+      <a href="explore-events.html" class="active"><i class="fa-solid fa-compass"></i> Explore Events</a>
+      <a href="my-registrations.html"><i class="fa-solid fa-clipboard-check"></i> My Registrations</a>
+      <a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a>
+      <a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header">
+        <h2>Explore Upcoming Events</h2>
+      </div>
+
+      <div class="events-grid">
+        <div class="event-card">
+          <div>
+            <span class="category-tag">Football</span>
+            <h3>Community Football League</h3>
+            <p><i class="fa-regular fa-calendar"></i> 16 Nov 2026 &bull; 8:00 AM</p>
+            <p><i class="fa-solid fa-location-dot"></i> Sports Hall</p>
+            <p><i class="fa-solid fa-users"></i> 18 / 24 Slots Filled</p>
+          </div>
+          <a href="event-register.html" class="btn-primary" style="text-align: center; text-decoration: none; margin-top: 18px;">Register Now</a>
+        </div>
+
+        <div class="event-card">
+          <div>
+            <span class="category-tag">Badminton</span>
+            <h3>Badminton Tournament</h3>
+            <p><i class="fa-regular fa-calendar"></i> 15 Nov 2026 &bull; 9:00 AM</p>
+            <p><i class="fa-solid fa-location-dot"></i> Arena A</p>
+            <p><i class="fa-solid fa-users"></i> 28 / 32 Slots Filled</p>
+          </div>
+          <a href="event-register.html" class="btn-primary" style="text-align: center; text-decoration: none; margin-top: 18px;">Register Now</a>
+        </div>
+
+        <div class="event-card">
+          <div>
+            <span class="category-tag">Running</span>
+            <h3>Morning Charity Fun Run 5KM</h3>
+            <p><i class="fa-regular fa-calendar"></i> 22 Nov 2026 &bull; 7:00 AM</p>
+            <p><i class="fa-solid fa-location-dot"></i> Lake Garden Track</p>
+            <p><i class="fa-solid fa-users"></i> 45 / 100 Slots Filled</p>
+          </div>
+          <a href="event-register.html" class="btn-primary" style="text-align: center; text-decoration: none; margin-top: 18px;">Register Now</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
