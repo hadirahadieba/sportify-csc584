@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manage Registrations - Sportify Community</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="logo">
+        <i class="fa-solid fa-person-running" style="color: #f59e0b; font-size: 24px;"></i>
+        <span>Sportify<br>Community</span>
+      </div>
+      <a href="dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+      <a href="events.html"><i class="fa-solid fa-calendar-days"></i> Manage Events</a>
+      <a href="categories.html"><i class="fa-solid fa-layer-group"></i> Manage Categories</a>
+      <a href="registrations.html" class="active"><i class="fa-solid fa-clipboard-list"></i> Manage Registrations</a>
+      <a href="logout.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header">
+        <h2>My Registrations</h2>
+        <a href="events.html" class="btn-small"><i class="fa-solid fa-plus"></i> Browse Events</a>
+      </div>
+
+      <div class="card-table">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Event Name</th>
+              <th>Date</th>
+              <th>Venue</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="reg-row-1">
+              <td>1</td>
+              <td>Community Football League</td>
+              <td>16 Nov 2026</td>
+              <td>Sports Hall</td>
+              <td><span id="status-1" class="badge badge-open">Registered</span></td>
+              <td>
+                <button type="button" id="btn-cancel-1" class="btn-cancel-sm" onclick="cancelRegistration(1)">
+                  Cancel
+                </button>
+              </td>
+            </tr>
+            <tr id="reg-row-2">
+              <td>2</td>
+              <td>Badminton Tournament</td>
+              <td>15 Nov 2026</td>
+              <td>Arena A</td>
+              <td><span id="status-2" class="badge badge-open">Registered</span></td>
+              <td>
+                <button type="button" id="btn-cancel-2" class="btn-cancel-sm" onclick="cancelRegistration(2)">
+                  Cancel
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function cancelRegistration(id) {
+      if (confirm('Are you sure you want to cancel this event registration?')) {
+        const statusBadge = document.getElementById('status-' + id);
+        const cancelBtn = document.getElementById('btn-cancel-' + id);
+
+        statusBadge.textContent = 'Cancelled';
+        statusBadge.className = 'badge badge-closed';
+        cancelBtn.disabled = true;
+        cancelBtn.textContent = 'Cancelled';
+        cancelBtn.style.opacity = '0.5';
+        cancelBtn.style.cursor = 'not-allowed';
+      }
+    }
+  </script>
+</body>
+</html>
