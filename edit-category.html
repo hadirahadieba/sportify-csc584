@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Category - Sportify Community</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="logo">
+        <i class="fa-solid fa-person-running" style="color: #f59e0b; font-size: 24px;"></i>
+        <span>Sportify<br>Community</span>
+      </div>
+      <a href="dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+      <a href="events.html"><i class="fa-solid fa-calendar-days"></i> Manage Events</a>
+      <a href="categories.html" class="active"><i class="fa-solid fa-layer-group"></i> Manage Categories</a>
+      <a href="registrations.html"><i class="fa-solid fa-clipboard-list"></i> Manage Registrations</a>
+      <a href="logout.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header">
+        <h2>Edit Sports Category</h2>
+      </div>
+
+      <div class="card-table" style="max-width: 560px;">
+        <form action="categories.html" method="get">
+          <!-- Hidden ID field ready for Servlet/JavaBean update later -->
+          <input type="hidden" name="categoryId" value="1">
+
+          <div class="form-group">
+            <label for="categoryName">Category Name</label>
+            <input type="text" id="categoryName" name="categoryName" value="Football" required>
+          </div>
+
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" name="description" rows="4" required>Football events and tournaments</textarea>
+          </div>
+
+          <div style="display: flex; gap: 12px; margin-top: 20px;">
+            <a href="categories.html" class="btn-secondary">Cancel</a>
+            <button type="submit" class="btn-primary">Update Category</button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

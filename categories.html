@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manage Categories - Sportify Community</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar">
+      <div class="logo">
+        <i class="fa-solid fa-person-running" style="color: #f59e0b; font-size: 24px;"></i>
+        <span>Sportify<br>Community</span>
+      </div>
+      <a href="dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+      <a href="events.html"><i class="fa-solid fa-calendar-days"></i> Manage Events</a>
+      <a href="categories.html" class="active"><i class="fa-solid fa-layer-group"></i> Manage Categories</a>
+      <a href="registrations.html"><i class="fa-solid fa-clipboard-list"></i> Manage Registrations</a>
+      <a href="logout.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header">
+        <h2>Manage Categories</h2>
+        <a href="add-category.html" class="btn-small"><i class="fa-solid fa-plus"></i> Add Category</a>
+      </div>
+
+      <div class="card-table">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Category Name</th>
+              <th>Description</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Football</td>
+              <td>Football events and tournaments</td>
+              <td class="action-icons">
+                <a href="edit-category.html" class="icon-edit" title="Edit"><i class="fa-solid fa-pen"></i></a>
+                <a href="#" class="icon-delete" title="Delete" onclick="return confirm('Delete Football category?');"><i class="fa-solid fa-trash"></i></a>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Badminton</td>
+              <td>Badminton events and tournaments</td>
+              <td class="action-icons">
+                <a href="edit-category.html" class="icon-edit" title="Edit"><i class="fa-solid fa-pen"></i></a>
+                <a href="#" class="icon-delete" title="Delete" onclick="return confirm('Delete Badminton category?');"><i class="fa-solid fa-trash"></i></a>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Futsal</td>
+              <td>Futsal events and tournaments</td>
+              <td class="action-icons">
+                <a href="edit-category.html" class="icon-edit" title="Edit"><i class="fa-solid fa-pen"></i></a>
+                <a href="#" class="icon-delete" title="Delete" onclick="return confirm('Delete Futsal category?');"><i class="fa-solid fa-trash"></i></a>
+              </td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Volleyball</td>
+              <td>Volleyball events and tournaments</td>
+              <td class="action-icons">
+                <a href="edit-category.html" class="icon-edit" title="Edit"><i class="fa-solid fa-pen"></i></a>
+                <a href="#" class="icon-delete" title="Delete" onclick="return confirm('Delete Volleyball category?');"><i class="fa-solid fa-trash"></i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
