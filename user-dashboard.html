@@ -129,8 +129,8 @@
       <div class="top-bar">
         <h2 style="color: #2d2a4a; margin: 0;">Member Dashboard</h2>
         <div class="user-greeting">
-          <span>Welcome, Irdina</span>
-          <div class="avatar-circle">IR</div>
+          <span id="welcomeUserText">Welcome, Member</span>
+          <div class="avatar-circle" id="userAvatarInitials">MB</div>
         </div>
       </div>
 
@@ -212,5 +212,11 @@
       </div>
     </main>
   </div>
+
+  <script>
+    const storedName = sessionStorage.getItem("sportifyName") || "Member";
+    document.getElementById("welcomeUserText").textContent = "Welcome, " + storedName;
+    document.getElementById("userAvatarInitials").textContent = storedName.substring(0, 2).toUpperCase();
+  </script>
 </body>
 </html>

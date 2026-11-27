@@ -5,33 +5,149 @@
   <title>Logout - Sportify Community</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(rgba(25, 22, 46, 0.55), rgba(25, 22, 46, 0.55)),
+                  url('https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    }
+    .top-navbar {
+      background: #ffffff;
+      padding: 14px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 18px;
+      color: #4c2889;
+      text-decoration: none;
+    }
+    .user-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #f3f0ff;
+      color: #2d2a4a;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .logout-center {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .logout-modal {
+      background: #ffffff;
+      width: 100%;
+      max-width: 400px;
+      padding: 36px 32px;
+      border-radius: 16px;
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.22);
+      text-align: center;
+    }
+    .check-circle {
+      width: 56px;
+      height: 56px;
+      background-color: #22c55e;
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin: 0 auto 18px;
+    }
+    .logout-modal h3 {
+      color: #2d2a4a;
+      font-size: 19px;
+      margin-bottom: 24px;
+    }
+    .logout-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+    .btn-cancel-box {
+      flex: 1;
+      background: #f1f0f7;
+      color: #2d2a4a;
+      padding: 11px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      text-align: center;
+    }
+    .btn-cancel-box:hover {
+      background: #e4e2f0;
+    }
+    .btn-logout-box {
+      flex: 1;
+      background: #5b3cc4;
+      color: #ffffff;
+      padding: 11px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      text-align: center;
+    }
+    .btn-logout-box:hover {
+      background: #482ea3;
+    }
+  </style>
 </head>
 <body>
-  <div class="logout-hero-bg">
-    <header class="top-navbar">
-      <div class="brand-header" style="margin-bottom: 0;">
-        <i class="fa-solid fa-person-running" style="font-size: 26px; color: #f59e0b;"></i>
-        <span style="font-size: 16px;">Sportify Community</span>
-      </div>
-      <div class="user-pill">
-        <i class="fa-solid fa-circle-user" style="color: #5b469c; font-size: 18px;"></i>
-        <span>Irdina</span>
-      </div>
-    </header>
+  <header class="top-navbar">
+    <a href="#" id="brandLink" class="nav-brand">
+      <i class="fa-solid fa-person-running" style="color: #f59e0b; font-size: 22px;"></i>
+      <span>Sportify Community</span>
+    </a>
+    <div class="user-pill">
+      <i class="fa-solid fa-circle-user" style="color: #5b3cc4; font-size: 18px;"></i>
+      <span id="navUserName">Admin</span>
+    </div>
+  </header>
 
-    <div class="logout-modal-container">
-      <div class="logout-modal">
-        <div class="check-circle">
-          <i class="fa-solid fa-check"></i>
-        </div>
-        <h3 style="margin-bottom: 20px; font-size: 18px;">Are you sure you want to logout?</h3>
-
-        <div style="display: flex; gap: 12px;">
-          <a href="categories.html" class="btn-secondary">Cancel</a>
-          <a href="login.html" class="btn-primary">Logout</a>
-        </div>
+  <div class="logout-center">
+    <div class="logout-modal">
+      <div class="check-circle">
+        <i class="fa-solid fa-check"></i>
+      </div>
+      <h3>Are you sure you want to logout?</h3>
+      <div class="logout-actions">
+        <a href="dashboard.html" id="cancelLogoutBtn" class="btn-cancel-box">Cancel</a>
+        <a href="login.html" id="confirmLogoutBtn" class="btn-logout-box">Logout</a>
       </div>
     </div>
   </div>
+
+  <script>
+    const role = sessionStorage.getItem("sportifyRole") || "Admin";
+    const userName = sessionStorage.getItem("sportifyName") || (role === "Admin" ? "Admin" : "Member");
+    const targetDashboard = (role === "Admin") ? "dashboard.html" : "user-dashboard.html";
+
+    document.getElementById("navUserName").textContent = userName;
+    document.getElementById("cancelLogoutBtn").href = targetDashboard;
+    document.getElementById("brandLink").href = targetDashboard;
+
+    document.getElementById("confirmLogoutBtn").addEventListener("click", function () {
+      sessionStorage.removeItem("sportifyRole");
+      sessionStorage.removeItem("sportifyName");
+    });
+  </script>
 </body>
 </html>

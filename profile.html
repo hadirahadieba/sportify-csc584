@@ -17,7 +17,7 @@
       <a href="explore-events.html"><i class="fa-solid fa-compass"></i> Explore Events</a>
       <a href="my-registrations.html"><i class="fa-solid fa-clipboard-check"></i> My Registrations</a>
       <a href="profile.html" class="active"><i class="fa-solid fa-user"></i> Profile</a>
-      <a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+      <a href="logout.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
     </aside>
 
     <main class="main-content">
@@ -26,23 +26,39 @@
       </div>
 
       <div class="card-table" style="max-width: 560px;">
-        <form onsubmit="event.preventDefault(); alert('Storyboard demo: Profile updated!');">
+        <form onsubmit="saveMemberProfile(event)">
           <div class="form-group">
             <label for="fullName">Full Name</label>
-            <input type="text" id="fullName" value="Irdina" required>
+            <input type="text" id="fullName" required>
           </div>
           <div class="form-group">
             <label for="email">Email Address</label>
-            <input type="email" id="email" value="irdina@sportify.com" readonly style="background-color: #f3f4f6; color: #6b7280;">
+            <input type="email" id="email" readonly style="background-color: #f3f4f6; color: #6b7280;">
           </div>
           <div class="form-group">
             <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" value="012-3456789" required>
+            <input type="tel" id="phone" required>
           </div>
           <button type="submit" class="btn-primary" style="margin-top: 10px;">Save Changes</button>
         </form>
       </div>
     </main>
   </div>
+
+  <script>
+    document.getElementById("fullName").value = sessionStorage.getItem("sportifyName") || "Member";
+    document.getElementById("email").value = sessionStorage.getItem("sportifyEmail") || "member@sportify.com";
+    document.getElementById("phone").value = sessionStorage.getItem("sportifyPhone") || "012-3456789";
+
+    function saveMemberProfile(event) {
+      event.preventDefault();
+      const updatedName = document.getElementById("fullName").value.trim();
+      const updatedPhone = document.getElementById("phone").value.trim();
+
+      sessionStorage.setItem("sportifyName", updatedName);
+      sessionStorage.setItem("sportifyPhone", updatedPhone);
+      alert("Profile updated!");
+    }
+  </script>
 </body>
 </html>

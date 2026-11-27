@@ -5,78 +5,143 @@
   <title>Register - Sportify Community</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .auth-wrapper {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #f3f0ff 0%, #e5deff 100%);
+      padding: 20px;
+    }
+    .auth-card {
+      background: #ffffff;
+      width: 100%;
+      max-width: 440px;
+      padding: 38px 34px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(74, 58, 138, 0.12);
+      text-align: center;
+    }
+    .auth-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 10px;
+      color: #2d2a4a;
+      font-size: 24px;
+      font-weight: 800;
+    }
+    .auth-subtitle {
+      color: #6c6a80;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+    .error-banner {
+      display: none;
+      background-color: #fee2e2;
+      border: 1px solid #fca5a5;
+      color: #b91c1c;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      margin-bottom: 18px;
+      text-align: left;
+      align-items: center;
+      gap: 8px;
+    }
+    .auth-card .form-group {
+      text-align: left;
+      margin-bottom: 16px;
+    }
+  </style>
 </head>
 <body>
   <div class="auth-wrapper">
     <div class="auth-card">
-      <div class="brand-header">
-        <i class="fa-solid fa-person-running" style="font-size: 32px; color: #f59e0b;"></i>
-        <span>Sportify<br>Community</span>
+      <div class="auth-logo">
+        <i class="fa-solid fa-person-running" style="color: #f59e0b; font-size: 28px;"></i>
+        <span>Sportify Community</span>
+      </div>
+      <p class="auth-subtitle">Create a member account to join community sports events</p>
+
+      <div id="regErrorBanner" class="error-banner">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <span id="regErrorText">Please check your details and try again.</span>
       </div>
 
-      <h2>Create Your Account</h2>
-      <p class="subtitle">Fill in your details to register</p>
-
-      <form action="login.html" method="get" onsubmit="return validateRegistration()">
-        <div class="input-icon-wrapper">
-          <i class="fa-regular fa-user"></i>
-          <input type="text" id="fullname" placeholder="Full Name" required>
+      <form id="registerForm" onsubmit="handleStoryboardRegister(event)">
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" name="fullName" placeholder="e.g. Siti Aminah" required>
         </div>
 
-        <div class="input-icon-wrapper">
-          <i class="fa-regular fa-envelope"></i>
-          <input type="email" id="email" placeholder="Email Address" required>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="e.g. siti@sportify.com" required>
         </div>
 
-        <div class="input-icon-wrapper">
-          <i class="fa-solid fa-phone"></i>
-          <input type="tel" id="phone" placeholder="Phone Number" required>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="e.g. 012-3456789" required>
         </div>
 
-        <div class="input-icon-wrapper">
-          <i class="fa-solid fa-lock"></i>
-          <input type="password" id="password" placeholder="Password" required>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Minimum 4 characters" required>
         </div>
 
-        <div class="input-icon-wrapper">
-          <i class="fa-solid fa-lock"></i>
-          <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter your password" required>
         </div>
 
-        <div id="errorBanner" class="error-banner" style="display: none;">
-          <i class="fa-solid fa-circle-exclamation"></i>
-          <span id="errorText">Password must be at least 8 characters.</span>
-        </div>
-
-        <button type="submit" class="btn-primary">Register</button>
+        <button type="submit" class="btn-primary" style="width: 100%; margin-top: 6px;">Create Account</button>
       </form>
 
-      <div class="auth-footer">
-        Already have an account? <a href="login.html">Login here</a>
-      </div>
+      <p style="margin-top: 18px; font-size: 14px; color: #5a5772;">
+        Already have an account? <a href="login.html" style="color: #6b46c1; font-weight: 600; text-decoration: none;">Login here</a>
+      </p>
     </div>
   </div>
 
   <script>
-    function validateRegistration() {
-      const password = document.getElementById('password').value;
-      const confirmPassword = document.getElementById('confirmPassword').value;
-      const banner = document.getElementById('errorBanner');
-      const errorText = document.getElementById('errorText');
+    function handleStoryboardRegister(event) {
+      event.preventDefault();
+      const fullName = document.getElementById("fullName").value.trim();
+      const email = document.getElementById("email").value.trim().toLowerCase();
+      const phone = document.getElementById("phone").value.trim();
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+      const errorBanner = document.getElementById("regErrorBanner");
+      const errorText = document.getElementById("regErrorText");
 
-      if (password.length < 8) {
-        errorText.textContent = "Password must be at least 8 characters.";
-        banner.style.display = "flex";
-        return false;
+      if (email === "admin@sportify.com") {
+        errorText.textContent = "This email is reserved for the system Admin.";
+        errorBanner.style.display = "flex";
+        return;
       }
+
+      if (password.length < 4) {
+        errorText.textContent = "Password must be at least 4 characters long.";
+        errorBanner.style.display = "flex";
+        return;
+      }
+
       if (password !== confirmPassword) {
         errorText.textContent = "Passwords do not match.";
-        banner.style.display = "flex";
-        return false;
+        errorBanner.style.display = "flex";
+        return;
       }
-      banner.style.display = "none";
-      alert("Registration successful! Redirecting to login...");
-      return true;
+
+      errorBanner.style.display = "none";
+      sessionStorage.setItem("sportifyRegisteredName", fullName);
+      sessionStorage.setItem("sportifyRegisteredEmail", email);
+      sessionStorage.setItem("sportifyRegisteredPhone", phone);
+
+      alert("Registration successful! Please log in with your email and password.");
+      window.location.href = "login.html";
     }
   </script>
 </body>

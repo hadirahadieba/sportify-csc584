@@ -50,7 +50,7 @@
       <a href="explore-events.html" class="active"><i class="fa-solid fa-compass"></i> Explore Events</a>
       <a href="my-registrations.html"><i class="fa-solid fa-clipboard-check"></i> My Registrations</a>
       <a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a>
-      <a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+      <a href="logout.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
     </aside>
 
     <main class="main-content">
@@ -71,12 +71,12 @@
 
           <div class="form-group">
             <label for="fullName">Participant Name</label>
-            <input type="text" id="fullName" name="fullName" value="Irdina" readonly style="background-color: #f3f4f6; color: #6b7280;">
+            <input type="text" id="fullName" name="fullName" readonly style="background-color: #f3f4f6; color: #6b7280;">
           </div>
 
           <div class="form-group">
             <label for="phoneNumber">Contact Phone Number</label>
-            <input type="tel" id="phoneNumber" name="phoneNumber" value="012-3456789" required>
+            <input type="tel" id="phoneNumber" name="phoneNumber" required>
           </div>
 
           <div class="form-group">
@@ -107,5 +107,10 @@
       </div>
     </main>
   </div>
+
+  <script>
+    document.getElementById("fullName").value = sessionStorage.getItem("sportifyName") || "Member";
+    document.getElementById("phoneNumber").value = sessionStorage.getItem("sportifyPhone") || "012-3456789";
+  </script>
 </body>
 </html>

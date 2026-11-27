@@ -79,7 +79,6 @@
       </div>
       <p class="auth-subtitle">Sign in to manage or join community sports events</p>
 
-      <!-- Red Feedback Banner -->
       <div id="errorBanner" class="error-banner">
         <i class="fa-solid fa-circle-exclamation"></i>
         <span id="errorText">Invalid email or password. Please try again.</span>
@@ -103,7 +102,6 @@
         Don't have an account? <a href="register.html" style="color: #6b46c1; font-weight: 600; text-decoration: none;">Register here</a>
       </p>
 
-      <!-- Helpful note for your lecturer during storyboard testing -->
       <div class="demo-hint">
         <strong>Storyboard Test Credentials:</strong><br>
         <strong>Admin:</strong> admin@sportify.com / admin123<br>
@@ -121,6 +119,8 @@
 
       if (email === "admin@sportify.com" && password === "admin123") {
         errorBanner.style.display = "none";
+        sessionStorage.setItem("sportifyRole", "Admin");
+        sessionStorage.setItem("sportifyName", "Admin");
         window.location.href = "dashboard.html";
       } else if (email === "admin@sportify.com" && password !== "admin123") {
         errorText.textContent = "Incorrect password for Admin account.";
@@ -132,6 +132,25 @@
         document.getElementById("password").value = "";
       } else {
         errorBanner.style.display = "none";
+
+        const regEmail = sessionStorage.getItem("sportifyRegisteredEmail");
+        const rawName = email.split("@")[0].replace(/[^a-zA-Z]/g, " ").trim();
+        const fallbackName = rawName
+          ? rawName.charAt(0).toUpperCase() + rawName.slice(1)
+          : "Member";
+
+        const displayName = (regEmail === email && sessionStorage.getItem("sportifyRegisteredName"))
+          ? sessionStorage.getItem("sportifyRegisteredName")
+          : fallbackName;
+
+        const displayPhone = (regEmail === email && sessionStorage.getItem("sportifyRegisteredPhone"))
+          ? sessionStorage.getItem("sportifyRegisteredPhone")
+          : "012-3456789";
+
+        sessionStorage.setItem("sportifyRole", "Member");
+        sessionStorage.setItem("sportifyName", displayName);
+        sessionStorage.setItem("sportifyEmail", email);
+        sessionStorage.setItem("sportifyPhone", displayPhone);
         window.location.href = "user-dashboard.html";
       }
     }
