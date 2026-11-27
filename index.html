@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Sportify Community</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .auth-wrapper {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #f3f0ff 0%, #e5deff 100%);
+      padding: 20px;
+    }
+    .auth-card {
+      background: #ffffff;
+      width: 100%;
+      max-width: 420px;
+      padding: 40px 34px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(74, 58, 138, 0.12);
+      text-align: center;
+    }
+    .auth-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 10px;
+      color: #2d2a4a;
+      font-size: 24px;
+      font-weight: 800;
+    }
+    .auth-subtitle {
+      color: #6c6a80;
+      font-size: 14px;
+      margin-bottom: 28px;
+    }
+    .error-banner {
+      display: none;
+      background-color: #fee2e2;
+      border: 1px solid #fca5a5;
+      color: #b91c1c;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      margin-bottom: 18px;
+      text-align: left;
+      align-items: center;
+      gap: 8px;
+    }
+    .auth-card .form-group {
+      text-align: left;
+      margin-bottom: 18px;
+    }
+    .demo-hint {
+      margin-top: 20px;
+      padding: 12px;
+      background-color: #f8f7fc;
+      border: 1px dashed #dcd8ed;
+      border-radius: 8px;
+      font-size: 12.5px;
+      color: #5a5772;
+      text-align: left;
+    }
+    .demo-hint strong {
+      color: #2d2a4a;
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      <div class="auth-logo">
+        <i class="fa-solid fa-person-running" style="color: #f59e0b; font-size: 28px;"></i>
+        <span>Sportify Community</span>
+      </div>
+      <p class="auth-subtitle">Sign in to manage or join community sports events</p>
+
+      <div id="errorBanner" class="error-banner">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <span id="errorText">Invalid email or password. Please try again.</span>
+      </div>
+
+      <form id="loginForm" onsubmit="handleStoryboardLogin(event)">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+
+        <button type="submit" class="btn-primary" style="width: 100%; margin-top: 6px;">Login</button>
+      </form>
+
+      <p style="margin-top: 18px; font-size: 14px; color: #5a5772;">
+        Don't have an account? <a href="register.html" style="color: #6b46c1; font-weight: 600; text-decoration: none;">Register here</a>
+      </p>
+
+      <div class="demo-hint">
+        <strong>Storyboard Test Credentials:</strong><br>
+        <strong>Admin:</strong> admin@sportify.com / admin123<br>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function handleStoryboardLogin(event) {
+      event.preventDefault();
+      const email = document.getElementById("email").value.trim().toLowerCase();
+      const password = document.getElementById("password").value;
+      const errorBanner = document.getElementById("errorBanner");
+      const errorText = document.getElementById("errorText");
+
+      if (email === "admin@sportify.com" && password === "admin123") {
+        errorBanner.style.display = "none";
+        sessionStorage.setItem("sportifyRole", "Admin");
+        sessionStorage.setItem("sportifyName", "Admin");
+        window.location.href = "dashboard.html";
+      } else if (email === "admin@sportify.com" && password !== "admin123") {
+        errorText.textContent = "Incorrect password for Admin account.";
+        errorBanner.style.display = "flex";
+        document.getElementById("password").value = "";
+      } else if (password.length < 4) {
+        errorText.textContent = "Invalid password. Password must be at least 4 characters.";
+        errorBanner.style.display = "flex";
+        document.getElementById("password").value = "";
+      } else {
+        errorBanner.style.display = "none";
+
+        const regEmail = sessionStorage.getItem("sportifyRegisteredEmail");
+        const rawName = email.split("@")[0].replace(/[^a-zA-Z]/g, " ").trim();
+        const fallbackName = rawName
+          ? rawName.charAt(0).toUpperCase() + rawName.slice(1)
+          : "Member";
+
+        const displayName = (regEmail === email && sessionStorage.getItem("sportifyRegisteredName"))
+          ? sessionStorage.getItem("sportifyRegisteredName")
+          : fallbackName;
+
+        const displayPhone = (regEmail === email && sessionStorage.getItem("sportifyRegisteredPhone"))
+          ? sessionStorage.getItem("sportifyRegisteredPhone")
+          : "012-3456789";
+
+        sessionStorage.setItem("sportifyRole", "Member");
+        sessionStorage.setItem("sportifyName", displayName);
+        sessionStorage.setItem("sportifyEmail", email);
+        sessionStorage.setItem("sportifyPhone", displayPhone);
+        window.location.href = "user-dashboard.html";
+      }
+    }
+  </script>
+</body>
+</html>
